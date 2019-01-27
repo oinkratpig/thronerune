@@ -5,7 +5,7 @@
 #macro TILE_SIZE 16
 #macro BATTLE_WIDTH 4
 #macro BATTLE_HEIGHT 4
-#macro PLAYER_GRAZE_DIST 8
+#macro PLAYER_GRAZE_DIST 9.5
 
 // Macros
 #macro BATTLE_MARGIN (game_width*0.175)
@@ -665,6 +665,12 @@ return (_x >= BATTLEBOX_LEFT && _x <= BATTLEBOX_RIGHT && _y >= BATTLEBOX_TOP && 
 sound_play(global.sndGraze);
 global.graze_rad = 0;
 global.graze_avail = false;
+add_toiletpaper(1);
+
+#define add_toiletpaper(_amnt)
+
+// Add toilet paper
+with(Player) toiletpaper = clamp(toiletpaper + _amnt, 0, 100);
 
 #define hit_enemy(_attacker, _dmg, _show_dmg_num)
 
@@ -954,7 +960,9 @@ if(global.rpg_activated)
                     if(global.attack_bars[|i] <= ATTACK_RECT_LEFT + ATTACK_GOAL_WIDTH + ATTACK_GRACE_DIST)
                     {
                         sound_play(global.sndHit);
-                        hit_enemy(k, 1 + _yellow, true);
+                        var _dmg = 1 + _yellow;
+                        hit_enemy(k, _dmg, true);
+                        add_toiletpaper(_dmg);
                     }
                     // Animation
                     ds_list_add(global.attack_bar_anims, [global.attack_bars[|i], i, 0, _yellow]);

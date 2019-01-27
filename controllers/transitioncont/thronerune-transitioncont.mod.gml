@@ -13,6 +13,13 @@ global.surf = surface_create(game_width, game_height);
 
 #define transition_start()
 
+// Transition disabled; just die
+with(Player) my_health = 0;
+with(Wall) instance_destroy();
+with(Floor) instance_destroy();
+with(CustomObject) instance_destroy();
+mod_variable_set("mod", "thronerune-main", "intro", false);
+/*
 audio_play_sound(global.sndFadein, 0, false);
 with(Player)
 {
@@ -20,6 +27,7 @@ with(Player)
 }
 global.enabled = true;
 global.scale_rad = 0;
+*/
 
 #define step
 
@@ -38,9 +46,9 @@ if(global.enabled)
 
 #define draw_gui_end
 
+/*
 if(global.enabled)
 {
-    
     if(!surface_exists(global.surf)) create_surf();
     surface_screenshot(global.surf);
     
@@ -67,3 +75,4 @@ if(global.enabled)
     draw_rectangle(-999, -999, game_width+999, game_height+999, false);
     draw_set_alpha(1);
 }
+*/

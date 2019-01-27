@@ -12,6 +12,8 @@ global.sprWallOut = sprite_add("sprWallOut.png", 1, 0, 0);
 global.sprDebris = sprite_add("sprDebris.png", 4, 0, 0);
 global.sprTree = sprite_add("sprTree.png", 1, 0, 0);
 global.sprLeaf = sprite_add("sprLeaf.png", 3, 0, 0);
+global.sprFloorBack = sprite_add("sprFloorBack.png", 1, 5, 5);
+global.sprNothing = sprite_add("sprNothing.png", 1, 0, 0);
 
 #define area_name
 return "FLD "+string(GameCont.subarea);
@@ -64,8 +66,27 @@ var _max = [choose(1, 1, 2), choose(1, 1, 2)];
 for(var h = _min[0]; h <= _max[0]; h++)
     for(var w = _min[1]; w <= _max[1]; w++)
         with(instance_create(x + 32*w, y + 32*h, Floor))
+        {
             if(place_meeting(x, y, Floor)) instance_destroy();
+            else create_floor_back(id);
+        }
 
+#define create_floor_back(_creator)
+with(instance_create(x, y, CustomObject))
+{
+    creator = _creator;
+    sprite_index = global.sprFloorBack;
+    mask_index = global.sprNothing;
+    on_step = floor_back_step;
+}
+#define floor_back_step
+if(!instance_exists(creator)) instance_destroy();
+else
+{
+    depth = creator.depth + 10;
+    x = creator.x;
+    y = creator.y;
+}
 
 #define area_start
 

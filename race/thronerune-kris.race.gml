@@ -116,7 +116,24 @@ with(Player)
     canaim = !enable;
 }
 
+#define draw
+
+// Toilet paper
+if(toiletpaper != 0)
+{
+    draw_set_font(fntSmall);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_bottom);
+    draw_set_color(c_orange);
+    if(mouse_y[index] <= y) draw_set_alpha(0.75);
+    else draw_set_alpha(0.95);
+    draw_text(x, bbox_top - 7, string(toiletpaper));
+    draw_set_alpha(1);
+}
+
 #define create
+
+toiletpaper = 0;
 
 // Intro kris
 if(mod_variable_get("mod", "thronerune-main", "intro"))
@@ -160,8 +177,16 @@ if(!mod_variable_get("mod", "thronerune-rpg", "rpg_activated"))
     if(distance_to_object(enemy) <= 16)
         mod_script_call("mod", "thronerune-rpg", "start_rpg");
     // Spec menu
+    /*
     if(button_pressed(index, "horn"))
         mod_script_call("mod", "thronerune-specmenu", "toggle_menu");
+    */
+    // Summon follower
+    if(button_pressed(index, "spec") && toiletpaper >= 20)
+    {
+        toiletpaper -= 20;
+        mod_script_call("mod", "thronerune-susie", "susie_create", x, y);
+    }
 }
 
 #define game_start

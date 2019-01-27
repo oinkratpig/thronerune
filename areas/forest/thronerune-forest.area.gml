@@ -83,10 +83,7 @@ with(instance_create(x, y, CustomObject))
     on_step = floor_back_step;
 }
 #define floor_back_step
-if(!instance_exists(creator))
-{
-    instance_destroy();
-}
+if(!instance_exists(creator)) instance_destroy();
 else
 {
     depth = creator.depth + 10;

@@ -19,7 +19,7 @@ sprite_replace(sprPortalL5, "sprNothing.png", 1, 0, 0);
 //sound_replace(sndPortalOpen, "sndNothing.ogg");
 
 // Config
-global.intro = true;
+global.intro = false;
 
 #define step
 

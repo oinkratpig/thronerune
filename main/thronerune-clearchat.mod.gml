@@ -2,9 +2,9 @@
 global.someone_talked = false;
 global.enabled = true;
 
-boot_text();
-wait(room_speed * 4);
-if(global.enabled) boot_text();
+//boot_text();
+//wait(room_speed * 4);
+//if(global.enabled) boot_text();
 
 #define chat_message
 if(!global.someone_talked)

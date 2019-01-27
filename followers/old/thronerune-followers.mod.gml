@@ -47,6 +47,7 @@ with(_creator) with(instance_create(x, y, CustomHitme))
     leader = false;
     
     creator = _creator;
+    friction = creator.friction;
     image_speed = creator.image_speed;
     spr_idle = (is_ralsei) ? global.sprRalseiIdle : global.sprSusieIdle;
     spr_walk = spr_idle;

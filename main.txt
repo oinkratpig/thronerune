@@ -18,12 +18,14 @@
 
 // MECHANICS
 /loadmod rpg/thronerune-rpg
-/loadmod followers/thronerune-followers
 /loadmod specmenu/thronerune-specmenu
 
 // RACE
 /loadwep race/thronerune-sword
 /loadrace race/thronerune-kris
+
+// FOLLOWERS
+/loadmod followers/thronerune-susie
 
 // AREAS
 /loadarea areas/field/thronerune-field
