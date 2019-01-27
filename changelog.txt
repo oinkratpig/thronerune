@@ -1,0 +1,10 @@
+
+- Finished intro (for now)
+- Temporarily removed some buttons in battle
+- Added the scarlet forest
+- Added start-up chat text
+- Using chat in the intro now says it in a text box
+- Added some ACT text to show in battle
+
+- Fixed trees spawning on top of other trees
+- Fixed some text being positioned weird

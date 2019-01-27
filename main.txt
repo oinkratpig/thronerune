@@ -1,0 +1,34 @@
+
+// dont remove stuff here thank you
+// - knilax
+
+// MAIN
+/loadmod main/thronerune-main
+/loadmod main/textboxes/thronerune-textboxes
+
+// INTRO
+/loadmod controllers/introcont/thronerune-introcont
+/loadmod controllers/transitioncont/thronerune-transitioncont
+/loadmod race/normal/thronerune-kris-normal
+/loadrace race/normal/thronerune-kris-normal
+/loadarea areas/intro0/thronerune-intro0
+
+// MENU
+/loadmod charmenu/thronerune-charmenu
+
+// MECHANICS
+/loadmod rpg/thronerune-rpg
+/loadmod followers/thronerune-followers
+/loadmod specmenu/thronerune-specmenu
+
+// RACE
+/loadwep race/thronerune-sword
+/loadrace race/thronerune-kris
+
+// AREAS
+/loadarea areas/field/thronerune-field
+/loadarea areas/forest/thronerune-forest
+
+// OPTIONAL
+/loadmod main/textboxes/thronerune-chattextboxes
+/loadmod main/thronerune-clearchat
